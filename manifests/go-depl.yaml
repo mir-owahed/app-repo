@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: boardgame
+        app: go-app
     spec:
       containers:
         - name: go-app
