@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: boardgame
+      app: go-app
   replicas: 2 # Number of replicas that will be created for this deployment
   template:
     metadata:
@@ -13,7 +13,7 @@ spec:
         app: boardgame
     spec:
       containers:
-        - name: boardgame
+        - name: go-app
           image: owahed1/go-lang-app:0.0.2 # Image that will be used to containers in the cluster
           imagePullPolicy: Always
           ports:
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating
 metadata: # Metadata of the resource kind we are creating
-  name: boardgame-service
+  name: go-app-service
 spec:
   selector:
-    app: boardgame
+    app: go-app
   ports:
     - protocol: "TCP"
       port: 80
